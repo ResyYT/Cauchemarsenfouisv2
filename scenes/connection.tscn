@@ -31,8 +31,52 @@ text = "[center][font_size=50]Connection"
 
 [node name="InformationsConnection" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 656.0
+offset_top = 208.0
+offset_right = 1220.0
+offset_bottom = 368.0
 
-[node name="Pseudo" type="RichTextLabel" parent="Panel/InformationsConnection"]
+[node name="Pseudo" type="TextEdit" parent="Panel/InformationsConnection"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+placeholder_text = "Entrez votre nom"
+
+[node name="InformationsStatus" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 342.0
+offset_right = 1218.0
+offset_bottom = 458.0
+
+[node name="StatusServeur" type="RichTextLabel" parent="Panel/InformationsStatus"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "{text}"
+
+[node name="BoutonsConnection" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 436.0
+offset_right = 1154.0
+offset_bottom = 570.0
+
+[node name="Connection" type="Button" parent="Panel/BoutonsConnection"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Connection"
+
+[node name="Retour" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 1000.0
+offset_right = 296.0
+offset_bottom = 1050.0
+
+[node name="BoutonRetour" type="Button" parent="Panel/Retour"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Retour"
+
+[connection signal="pressed" from="Panel/BoutonsConnection/Connection" to="." method="_appuyer_connection"]
+[connection signal="pressed" from="Panel/Retour/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
