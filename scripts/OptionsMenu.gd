@@ -10,6 +10,9 @@ func _ready():
 func _process(delta):
 	pass
 
+func _on_audio_button_pressed():
+	pass # Replace with function body.
 
-func _on_return_pressed():
+
+func _on_retour_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu_start.tscn")

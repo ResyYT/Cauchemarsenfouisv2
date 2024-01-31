@@ -15,7 +15,7 @@ func _ready():
 		startClient()
 		
 func startServeur():
-	print("Starting Server...")
+	print("Starting Server")
 	
 	multiplayer.peer_connected.connect(self._on_client_connected)
 	multiplayer.peer_disconnected.connect(self._on_client_disconnected)
@@ -28,7 +28,7 @@ func startServeur():
 func startClient():
 	multiplayer.connected_to_server.connect(self.connected_to_server)
 	multiplayer.server_disconnected.connect(self.disconnected_from_server)
-	print("creating client...")
+	print("Creating client")
 	
 	var client = ENetMultiplayerPeer.new()
 	client.create_client("54.37.40.235",1111)
@@ -51,10 +51,10 @@ func statusServerClient(status):
 	_statusServer(status)
 	
 func connected_to_server():
-	print("Connected to server...")
+	print("Connected to server")
 	
 func disconnected_from_server():
-	print("disconnected from server...")
+	print("disconnected from server")
 	
 func _on_client_connected(clientId):
 	print(str(clientId) + " : Connected")
