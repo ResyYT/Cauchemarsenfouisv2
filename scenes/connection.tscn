@@ -68,15 +68,24 @@ text = "Connection"
 
 [node name="Retour" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
-offset_left = 44.0
-offset_top = 1000.0
-offset_right = 296.0
-offset_bottom = 1050.0
+offset_left = 40.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
 
 [node name="BoutonRetour" type="Button" parent="Panel/Retour"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
-text = "Retour"
+
+[node name="RetourText" type="RichTextLabel" parent="Panel/Retour/BoutonRetour"]
+offset_left = -24.0
+offset_top = 12.0
+offset_right = 222.0
+offset_bottom = 80.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][font_size=25
+]Retour"
 
 [connection signal="pressed" from="Panel/BoutonsConnection/Connection" to="." method="_appuyer_connection"]
 [connection signal="pressed" from="Panel/Retour/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

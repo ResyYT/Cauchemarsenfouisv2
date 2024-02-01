@@ -53,9 +53,9 @@ text = "[center][font_size=40]Audio"
 [node name="Retour" type="VBoxContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 980.0
+offset_top = 950.0
 offset_right = 240.0
-offset_bottom = 1050.0
+offset_bottom = 1020.0
 
 [node name="RetourButton" type="Button" parent="Panel/Retour"]
 custom_minimum_size = Vector2(0, 70)
