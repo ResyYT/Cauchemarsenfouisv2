@@ -69,6 +69,7 @@ func _statusServer(status):
 func _appuyer_connection():
 	var NomActuel = _yourName.text
 	infoConnectionsServer.rpc(NomActuel)
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_bouton_retour_pressed():
 	get_tree().change_scene_to_file("res://scenes/menu_start.tscn")

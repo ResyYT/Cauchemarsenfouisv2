@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://oj016vcsx081"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_o6ila"]
+[ext_resource type="Script" path="res://scripts/basic_player_startup.gd" id="2_0c5a2"]
+[ext_resource type="PackedScene" uid="uid://dkyyfd7b32502" path="res://scenes/echap_menu.tscn" id="2_jyfq4"]
+[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://scenes/basic_player_head.tscn" id="3_130u0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6we38"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_o6ila")
+
+[node name="BasicFPSPlayer" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("2_0c5a2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicFPSPlayer"]
+shape = SubResource("CapsuleShape3D_6we38")
+
+[node name="Head" parent="BasicFPSPlayer" instance=ExtResource("3_130u0")]
+
+[node name="EchapMenu" parent="." instance=ExtResource("2_jyfq4")]
