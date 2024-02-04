@@ -85,7 +85,13 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("echap"):
-		mouvement = false
+		if mouvement == false:
+			mouvement = true
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		elif mouvement == true:
+			mouvement = false
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			
 	if Engine.is_editor_hint():
 		return
 	
@@ -93,12 +99,14 @@ func _physics_process(delta):
 	tick += 1
 	
 	if UPDATE_PLAYER_ON_PHYS_STEP:
+		if mouvement == true:
+			rotate_player(delta)
 		move_player(delta)
-		rotate_player(delta)
+		
 	
 	if HEAD_BOB:
 		# Only move head when on the floor and moving
-		if velocity && is_on_floor():
+		if velocity && is_on_floor() and mouvement == true:
 			head_bob_motion()
 		reset_head_bob(delta)
 

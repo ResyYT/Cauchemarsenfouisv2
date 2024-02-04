@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d4m33umm6mcwi"]
+
+[node name="ControleOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+offset_left = 680.0
+offset_top = 60.0
+offset_right = 1184.0
+offset_bottom = 228.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Contrôles"

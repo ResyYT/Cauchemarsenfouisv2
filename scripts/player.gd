@@ -1,7 +1,8 @@
 extends Node3D
-signal mouvement_bool(boolean)
+
 @onready var paused_menu = $EchapMenu
-var paused = false
+
+var paused = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +18,8 @@ func pauseMenu():
 	if paused == false:
 		paused_menu.hide()
 		Engine.time_scale = 1
+		paused = true
 	elif paused == true:
 		paused_menu.show()
 		Engine.time_scale = 0
-		mouvement_bool.emit(true)
-	paused = !paused
+		paused = false
