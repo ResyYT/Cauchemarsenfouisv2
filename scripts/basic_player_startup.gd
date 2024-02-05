@@ -1,4 +1,3 @@
-@tool
 extends CharacterBody3D
 
 class_name player_startup
@@ -84,13 +83,14 @@ func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	head_start_pos = $Head.position
+	mouvement = true
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("echap"):
 		mouvement_detector_modifieur()
-		if mouvement == false:
+		if mouvement == true:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		elif mouvement == true:
+		elif mouvement == false:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 	if Engine.is_editor_hint():
