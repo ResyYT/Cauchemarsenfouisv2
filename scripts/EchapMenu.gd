@@ -16,4 +16,5 @@ func _on_contrôle_bouton_pressed():
 
 
 func _on_quitter_bouton_pressed():
+	player_startup.mouvement_detector_modifieur()
 	get_tree().change_scene_to_file("res://scenes/menu_start.tscn")

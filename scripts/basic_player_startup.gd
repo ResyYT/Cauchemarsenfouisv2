@@ -1,6 +1,8 @@
 @tool
 extends CharacterBody3D
 
+class_name player_startup
+
 var BasicFPSPlayerScene : PackedScene = preload("res://scenes/basic_player_head.tscn")
 var addedHead = false
 
@@ -85,11 +87,10 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("echap"):
+		mouvement_detector_modifieur()
 		if mouvement == false:
-			mouvement = true
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		elif mouvement == true:
-			mouvement = false
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 	if Engine.is_editor_hint():
@@ -185,3 +186,9 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+	
+func mouvement_detector_modifieur():
+	if mouvement == false:
+		mouvement = true
+	elif mouvement == true:
+		mouvement = false
