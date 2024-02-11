@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3hevrv7001f3"]
+
+[ext_resource type="Material" uid="uid://deikxpo3p5n0m" path="res://Textures/texture_sol_parking.tres" id="1_5kb6i"]
+[ext_resource type="Material" uid="uid://do468cgntmyuu" path="res://Textures/texture_sol_ligne_parking.tres" id="2_h3yjb"]
+[ext_resource type="Material" uid="uid://dr1rm8plbkova" path="res://Textures/sol_bumper_parking.tres" id="2_jjel5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm77f"]
+size = Vector3(50, 0, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86o7w"]
+size = Vector2(50, 50)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2h4l4"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v4u3a"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l2jiq"]
+
+[node name="SolParking" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Floor"]
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor6" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor6"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor6"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor7" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor7"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor7"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor8" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor8"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor8"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor9" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor9"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor9"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor2" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor2"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor2"]
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor3" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor3"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor4" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor4"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor4"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="Floor5" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+
+[node name="Collider" type="CollisionShape3D" parent="Floor/Floor5"]
+shape = SubResource("BoxShape3D_tm77f")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor/Floor5"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_86o7w")
+surface_material_override/0 = ExtResource("1_5kb6i")
+
+[node name="ligne_parking" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ligne_parking"]
+transform = Transform3D(0.05, 0, 0, 0, 1, 0, 0, 0, 1.8, 0, 0.005, 0)
+mesh = SubResource("PlaneMesh_2h4l4")
+surface_material_override/0 = ExtResource("2_h3yjb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ligne_parking/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ligne_parking/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v4u3a")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ligne_parking"]
+transform = Transform3D(0.05, 0, 0, 0, 1, 0, 0, 0, 1.8, -1.91036, 0.005, 0)
+mesh = SubResource("PlaneMesh_2h4l4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ligne_parking/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ligne_parking/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v4u3a")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="ligne_parking"]
+transform = Transform3D(2.62268e-08, -0.8, -8.74228e-09, -7.64274e-16, 3.49691e-08, -0.2, 0.2, 1.04907e-07, 3.82137e-16, -1, 0, -1.988)
+mesh = SubResource("CylinderMesh_l2jiq")
+surface_material_override/0 = ExtResource("2_jjel5")

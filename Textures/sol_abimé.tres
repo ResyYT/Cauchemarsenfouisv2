@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2rfyj008xvsx"]
+
+[ext_resource type="Texture2D" uid="uid://bp15eiu828dww" path="res://Textures/texture_dégradé.png" id="1_6l4sv"]
+
+[resource]
+resource_local_to_scene = true
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 1
+albedo_color = Color(0.803922, 0.611765, 0.6, 1)
+albedo_texture = ExtResource("1_6l4sv")
