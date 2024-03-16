@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dkyyfd7b32502"]
 
-[ext_resource type="Script" path="res://scripts/EchapMenu.gd" id="1_6x45j"]
+[ext_resource type="Script" path="res://scripts/Menu/EchapMenu.gd" id="1_6x45j"]
 
 [node name="EchapMenu" type="Control"]
 layout_mode = 3

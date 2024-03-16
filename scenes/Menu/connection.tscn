@@ -1,83 +1,78 @@
 [gd_scene load_steps=2 format=3 uid="uid://co5r374q0y276"]
 
-[ext_resource type="Script" path="res://scripts/Connection.gd" id="1_n4433"]
+[ext_resource type="Script" path="res://scripts/Menu/Connection.gd" id="1_aodg3"]
 
-[node name="StartupScene2" type="Control"]
+[node name="connection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_n4433")
+script = ExtResource("1_aodg3")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="Titre" type="VBoxContainer" parent="Panel"]
+[node name="Titre" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 600.0
 offset_top = 80.0
 offset_right = 1422.0
 offset_bottom = 180.0
 
-[node name="TexteTitre" type="RichTextLabel" parent="Panel/Titre"]
+[node name="TexteTitre" type="RichTextLabel" parent="Titre"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
 text = "[center][font_size=50]Connection"
 
-[node name="InformationsConnection" type="VBoxContainer" parent="Panel"]
+[node name="InformationsConnection" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 208.0
 offset_right = 1214.0
 offset_bottom = 308.0
 
-[node name="Pseudo" type="TextEdit" parent="Panel/InformationsConnection"]
+[node name="Pseudo" type="TextEdit" parent="InformationsConnection"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 placeholder_text = "Entrez votre nom"
 
-[node name="InformationsStatus" type="VBoxContainer" parent="Panel"]
+[node name="InformationsStatus" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 320.0
 offset_right = 1204.0
 offset_bottom = 420.0
 
-[node name="StatusServeur" type="RichTextLabel" parent="Panel/InformationsStatus"]
+[node name="StatusServeur" type="RichTextLabel" parent="InformationsStatus"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 bbcode_enabled = true
 text = "{text}"
 
-[node name="BoutonsConnection" type="VBoxContainer" parent="Panel"]
+[node name="BoutonsConnection" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 650.0
 offset_top = 436.0
 offset_right = 1128.0
 offset_bottom = 536.0
 
-[node name="Connection" type="Button" parent="Panel/BoutonsConnection"]
+[node name="Connection" type="Button" parent="BoutonsConnection"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Connection"
 
-[node name="Retour" type="VBoxContainer" parent="Panel"]
+[node name="Retour" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 960.0
 offset_right = 240.0
 offset_bottom = 1030.0
 
-[node name="BoutonRetour" type="Button" parent="Panel/Retour"]
+[node name="BoutonRetour" type="Button" parent="Retour"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
-[node name="RetourText" type="RichTextLabel" parent="Panel/Retour/BoutonRetour"]
+[node name="RetourText" type="RichTextLabel" parent="Retour/BoutonRetour"]
 layout_mode = 0
 offset_left = -24.0
 offset_top = 15.0
@@ -88,5 +83,5 @@ bbcode_enabled = true
 text = "[center][font_size=25
 ]Retour"
 
-[connection signal="pressed" from="Panel/BoutonsConnection/Connection" to="." method="_appuyer_connection"]
-[connection signal="pressed" from="Panel/Retour/BoutonRetour" to="." method="_on_bouton_retour_pressed"]
+[connection signal="pressed" from="BoutonsConnection/Connection" to="." method="_appuyer_connection"]
+[connection signal="pressed" from="Retour/BoutonRetour" to="." method="_on_bouton_retour_pressed"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://oj016vcsx081"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_o6ila"]
-[ext_resource type="Script" path="res://scripts/basic_player_startup.gd" id="2_0c5a2"]
-[ext_resource type="PackedScene" uid="uid://dkyyfd7b32502" path="res://scenes/echap_menu.tscn" id="2_jyfq4"]
-[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://scenes/basic_player_head.tscn" id="3_130u0"]
+[ext_resource type="Script" path="res://scripts/Joueur/player.gd" id="1_o6ila"]
+[ext_resource type="Script" path="res://scripts/Joueur/basic_player_startup.gd" id="2_0c5a2"]
+[ext_resource type="PackedScene" uid="uid://dkyyfd7b32502" path="res://scenes/Menu/echap_menu.tscn" id="2_jyfq4"]
+[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://scenes/Joueur/basic_player_head.tscn" id="3_130u0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6we38"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg3c3ihmbkx3o"]
 
-[ext_resource type="PackedScene" uid="uid://oj016vcsx081" path="res://scenes/player.tscn" id="1_23par"]
-[ext_resource type="PackedScene" uid="uid://dyp7ea63d7h86" path="res://scenes/map.tscn" id="2_kgr6i"]
+[ext_resource type="PackedScene" uid="uid://oj016vcsx081" path="res://scenes/Joueur/player.tscn" id="1_23par"]
+[ext_resource type="PackedScene" uid="uid://dyp7ea63d7h86" path="res://scenes/Map/map.tscn" id="2_kgr6i"]
 
 [node name="Main" type="Node"]
 

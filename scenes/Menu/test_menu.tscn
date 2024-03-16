@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvk00lecgomxk"]
 
-[ext_resource type="Script" path="res://scripts/test_menu.gd" id="1_bobb7"]
-[ext_resource type="PackedScene" uid="uid://bbyhpmo5w2fpi" path="res://scenes/test_menu_hud.tscn" id="1_uvnr8"]
-[ext_resource type="Script" path="res://scripts/test_Camera3D.gd" id="2_hteex"]
+[ext_resource type="Script" path="res://scripts/Menu/test_menu.gd" id="1_nkeo3"]
+[ext_resource type="Script" path="res://scripts/Joueur/test_Camera3D.gd" id="2_3q6pu"]
+[ext_resource type="PackedScene" uid="uid://3yejr3wewjgw" path="res://scenes/Menu/menu_start.tscn" id="3_4iexi"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bnghr"]
 
@@ -14,8 +14,8 @@ background_mode = 1
 background_color = Color(0.580392, 0.780392, 0.796078, 1)
 ambient_light_color = Color(0, 0.878431, 0.972549, 1)
 
-[node name="Node3D" type="Node3D"]
-script = ExtResource("1_bobb7")
+[node name="test_menu" type="Node3D"]
+script = ExtResource("1_nkeo3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_bnghr")
@@ -25,17 +25,13 @@ mesh = SubResource("PlaneMesh_bnghr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nkdj0")
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650008, 0)
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
-script = ExtResource("2_hteex")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yedhj")
 
-[node name="TestMenuHud" parent="." instance=ExtResource("1_uvnr8")]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650008, 5)
+script = ExtResource("2_3q6pu")
 
-[connection signal="bouton_press" from="TestMenuHud" to="." method="_on_test_menu_hud_bouton_press"]
-[connection signal="bouton_press" from="TestMenuHud" to="Node3D/Camera3D" method="_on_test_menu_hud_bouton_press"]
+[node name="MenuStart" parent="." instance=ExtResource("3_4iexi")]
+
+[connection signal="bouton_press" from="MenuStart" to="Camera3D" method="_on_menu_start_2_bouton_press"]

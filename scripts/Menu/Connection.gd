@@ -1,8 +1,8 @@
 extends Control
 
-@onready var _statusText = $Panel/InformationsStatus/StatusServeur
-@onready var _yourName = $Panel/InformationsConnection/Pseudo
-@onready var _connection = $Panel/BoutonsConnection/Connection
+@onready var _statusText = $InformationsStatus/StatusServeur
+@onready var _yourName = $InformationsConnection/Pseudo
+@onready var _connection = $BoutonsConnection/Connection
 var status_serveur = "Offline"
 var player_id_name = {}
 
