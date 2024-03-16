@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbyhpmo5w2fpi"]
+
+[ext_resource type="Script" path="res://scripts/test_menu_hud.gd" id="1_xh1ur"]
+
+[node name="TestMenuHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xh1ur")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 378.0
+offset_bottom = 100.0
+text = "Avancer Caméra"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

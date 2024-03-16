@@ -36,6 +36,9 @@ _subresources={
 },
 "PATH:Soleil": {
 "import/skip_import": true
+},
+"PATH:Suzanne": {
+"generate/physics": true
 }
 }
 }

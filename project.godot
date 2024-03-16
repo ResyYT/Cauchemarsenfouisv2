@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Cauchemars enfouis v2"
-run/main_scene="res://scenes/menu_start.tscn"
+config/name="Cauchemars enfouis"
+run/main_scene="res://scenes/test_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://Image/image_Chargement.png"
+boot_splash/image="res://Image/Tuto_blender.png"
 config/icon="res://Image/Cauchemars_Enfouis_logo.png"
 
 [display]
