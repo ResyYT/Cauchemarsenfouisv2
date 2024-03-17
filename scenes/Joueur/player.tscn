@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://oj016vcsx081"]
+[gd_scene load_steps=7 format=3 uid="uid://oj016vcsx081"]
 
 [ext_resource type="Script" path="res://scripts/Joueur/player.gd" id="1_o6ila"]
 [ext_resource type="Script" path="res://scripts/Joueur/basic_player_startup.gd" id="2_0c5a2"]
-[ext_resource type="PackedScene" uid="uid://dkyyfd7b32502" path="res://scenes/Menu/echap_menu.tscn" id="2_jyfq4"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://scenes/Joueur/basic_player_head.tscn" id="3_130u0"]
+[ext_resource type="Script" path="res://scripts/Menu/MenuEchap.gd" id="4_stmsk"]
+[ext_resource type="Theme" uid="uid://po72rwqhtad8" path="res://Thèmes/Bouton.tres" id="5_1exbk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6we38"]
 
@@ -19,4 +20,66 @@ shape = SubResource("CapsuleShape3D_6we38")
 
 [node name="Head" parent="BasicFPSPlayer" instance=ExtResource("3_130u0")]
 
-[node name="EchapMenu" parent="." instance=ExtResource("2_jyfq4")]
+[node name="MenuEchap" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_stmsk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuEchap"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 60.0
+offset_right = 1184.0
+offset_bottom = 228.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuEchap/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Menu"
+
+[node name="Continuer" type="VBoxContainer" parent="MenuEchap"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 179.0
+offset_right = 1115.0
+offset_bottom = 286.0
+
+[node name="ContinuerBouton" type="Button" parent="MenuEchap/Continuer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("5_1exbk")
+text = "Continuer"
+
+[node name="Contrôle" type="VBoxContainer" parent="MenuEchap"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 289.0
+offset_right = 1115.0
+offset_bottom = 396.0
+
+[node name="ContrôleBouton" type="Button" parent="MenuEchap/Contrôle"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("5_1exbk")
+text = "Controles"
+
+[node name="Quitter" type="VBoxContainer" parent="MenuEchap"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 400.0
+offset_right = 1115.0
+offset_bottom = 507.0
+
+[node name="QuitterBouton" type="Button" parent="MenuEchap/Quitter"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("5_1exbk")
+text = "Quitter"
+
+[connection signal="bouton_continuer_pressed" from="MenuEchap" to="BasicFPSPlayer" method="_on_menu_echap_bouton_continuer_pressed"]
+[connection signal="pressed" from="MenuEchap/Continuer/ContinuerBouton" to="MenuEchap" method="_on_continuer_bouton_pressed"]
+[connection signal="pressed" from="MenuEchap/Contrôle/ContrôleBouton" to="MenuEchap" method="_on_contrôle_bouton_pressed"]
+[connection signal="pressed" from="MenuEchap/Quitter/QuitterBouton" to="MenuEchap" method="_on_quitter_bouton_pressed"]

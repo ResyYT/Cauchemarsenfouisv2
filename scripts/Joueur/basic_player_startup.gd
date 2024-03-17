@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 class_name player_startup
 
-var BasicFPSPlayerScene : PackedScene = preload("res://scenes/basic_player_head.tscn")
+var BasicFPSPlayerScene : PackedScene = preload("res://scenes/Joueur/basic_player_head.tscn")
 var addedHead = false
 
 func _enter_tree():
@@ -83,15 +83,13 @@ func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	head_start_pos = $Head.position
-	mouvement = true
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("echap"):
-		mouvement_detector_modifieur()
-		if mouvement == true:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		elif mouvement == false:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		
+	if mouvement == true:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if mouvement == false:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			
 	if Engine.is_editor_hint():
 		return
@@ -120,8 +118,9 @@ func _process(delta):
 		rotate_player(delta)
 
 func _input(event):
-	var echap_scene = preload("res://scenes/echap_menu.tscn").instantiate()
-	
+	if Input.is_action_just_pressed("echap"):
+		mouvement = false
+		
 	if Engine.is_editor_hint():
 		return
 		
@@ -186,9 +185,7 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
-	
-func mouvement_detector_modifieur():
-	if mouvement == false:
-		mouvement = true
-	elif mouvement == true:
-		mouvement = false
+
+
+func _on_menu_echap_bouton_continuer_pressed():
+	mouvement = true

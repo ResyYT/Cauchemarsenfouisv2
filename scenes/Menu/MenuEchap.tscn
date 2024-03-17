@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkyyfd7b32502"]
+
+[ext_resource type="Script" path="res://scripts/Menu/MenuEchap.gd" id="1_mfqhb"]
+
+[node name="EchapMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mfqhb")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 60.0
+offset_right = 1184.0
+offset_bottom = 228.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Menu"
+
+[node name="Contrôle" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 179.0
+offset_right = 1115.0
+offset_bottom = 286.0
+
+[node name="ContrôleBouton" type="Button" parent="Panel/Contrôle"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ContrôleTexte" type="RichTextLabel" parent="Panel/Contrôle/ContrôleBouton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 30.0
+offset_right = 351.0
+offset_bottom = 129.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][font_size=25]Contrôles"
+
+[node name="Quitter" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 290.0
+offset_right = 1115.0
+offset_bottom = 397.0
+
+[node name="QuitterBouton" type="Button" parent="Panel/Quitter"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="QuitterTexte" type="RichTextLabel" parent="Panel/Quitter/QuitterBouton"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 30.0
+offset_right = 351.0
+offset_bottom = 129.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][font_size=25]Quitter"
+
+[connection signal="pressed" from="Panel/Contrôle/ContrôleBouton" to="." method="_on_contrôle_bouton_pressed"]
+[connection signal="pressed" from="Panel/Quitter/QuitterBouton" to="." method="_on_quitter_bouton_pressed"]

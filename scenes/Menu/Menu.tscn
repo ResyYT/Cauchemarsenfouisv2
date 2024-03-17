@@ -1,0 +1,186 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvk00lecgomxk"]
+
+[ext_resource type="Script" path="res://scripts/Menu/Menu.gd" id="1_nkeo3"]
+[ext_resource type="Script" path="res://scripts/Joueur/Menu_moved_Camera3D.gd" id="2_3q6pu"]
+[ext_resource type="Script" path="res://scripts/Menu/MenuConnection.gd" id="3_elrk6"]
+[ext_resource type="Theme" uid="uid://po72rwqhtad8" path="res://Thèmes/Bouton.tres" id="3_wseu7"]
+[ext_resource type="Script" path="res://scripts/Menu/MenuOptions.gd" id="4_qs0m4"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bnghr"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nkdj0"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="Environment" id="Environment_yedhj"]
+background_mode = 1
+background_color = Color(0.580392, 0.780392, 0.796078, 1)
+ambient_light_color = Color(0, 0.878431, 0.972549, 1)
+
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_nkeo3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_bnghr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_nkdj0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yedhj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650008, 5)
+script = ExtResource("2_3q6pu")
+
+[node name="MenuPrincipal" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipal"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 150.0
+offset_right = 1130.0
+offset_bottom = 458.0
+
+[node name="Jouer" type="Button" parent="MenuPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Jouer"
+
+[node name="Options" type="Button" parent="MenuPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Options"
+
+[node name="Quitter" type="Button" parent="MenuPrincipal/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Quitter"
+
+[node name="MenuConnection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_elrk6")
+
+[node name="Titre" type="VBoxContainer" parent="MenuConnection"]
+offset_left = 600.0
+offset_top = 80.0
+offset_right = 1422.0
+offset_bottom = 180.0
+
+[node name="TexteTitre" type="RichTextLabel" parent="MenuConnection/Titre"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Connection"
+
+[node name="InformationsConnection" type="VBoxContainer" parent="MenuConnection"]
+offset_left = 650.0
+offset_top = 208.0
+offset_right = 1214.0
+offset_bottom = 308.0
+
+[node name="Pseudo" type="TextEdit" parent="MenuConnection/InformationsConnection"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+placeholder_text = "Entrez votre nom"
+
+[node name="InformationsStatus" type="VBoxContainer" parent="MenuConnection"]
+offset_left = 650.0
+offset_top = 320.0
+offset_right = 1204.0
+offset_bottom = 420.0
+
+[node name="StatusServeur" type="RichTextLabel" parent="MenuConnection/InformationsStatus"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "{text}"
+
+[node name="BoutonsConnection" type="VBoxContainer" parent="MenuConnection"]
+offset_left = 650.0
+offset_top = 436.0
+offset_right = 1128.0
+offset_bottom = 536.0
+
+[node name="Connection" type="Button" parent="MenuConnection/BoutonsConnection"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Connection"
+
+[node name="Retour" type="VBoxContainer" parent="MenuConnection"]
+offset_left = 40.0
+offset_top = 960.0
+offset_right = 240.0
+offset_bottom = 1030.0
+
+[node name="BoutonRetour" type="Button" parent="MenuConnection/Retour"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Retour"
+
+[node name="MenuOptions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_qs0m4")
+
+[node name="Titre" type="VBoxContainer" parent="MenuOptions"]
+offset_left = 650.0
+offset_top = 68.0
+offset_right = 1250.0
+offset_bottom = 168.0
+
+[node name="TitreText" type="RichTextLabel" parent="MenuOptions/Titre"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=40]Options"
+
+[node name="Audio" type="VBoxContainer" parent="MenuOptions"]
+offset_left = 800.0
+offset_top = 210.0
+offset_right = 1100.0
+offset_bottom = 310.0
+
+[node name="AudioButton" type="Button" parent="MenuOptions/Audio"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Audio
+"
+
+[node name="Retour" type="VBoxContainer" parent="MenuOptions"]
+offset_left = 40.0
+offset_top = 950.0
+offset_right = 240.0
+offset_bottom = 1020.0
+
+[node name="RetourButton" type="Button" parent="MenuOptions/Retour"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme = ExtResource("3_wseu7")
+text = "Retour"
+
+[connection signal="bouton_jouer_press" from="." to="Camera3D" method="_on_menu_bouton_jouer_press"]
+[connection signal="pressed" from="MenuPrincipal/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
+[connection signal="pressed" from="MenuPrincipal/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuPrincipal/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="MenuConnection/BoutonsConnection/Connection" to="MenuConnection" method="_appuyer_connection"]
+[connection signal="pressed" from="MenuConnection/Retour/BoutonRetour" to="MenuConnection" method="_on_bouton_retour_pressed"]
+[connection signal="pressed" from="MenuOptions/Audio/AudioButton" to="MenuOptions" method="_on_audio_button_pressed"]
+[connection signal="pressed" from="MenuOptions/Retour/RetourButton" to="MenuOptions" method="_on_retour_button_pressed"]
