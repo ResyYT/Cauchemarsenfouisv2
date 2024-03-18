@@ -1,5 +1,7 @@
 extends Control
 
+signal bouton_retour_pressed(posistion_camera)
+
 @onready var _statusText = $InformationsStatus/StatusServeur
 @onready var _yourName = $InformationsConnection/Pseudo
 
@@ -72,4 +74,4 @@ func _appuyer_connection():
 	SceneSwitcher.switch_scene("res://scenes/Map/main.tscn")
 
 func _on_bouton_retour_pressed():
-	SceneSwitcher.switch_scene("res://scenes/Menu/Menu.tscn")
+	bouton_retour_pressed.emit(Vector3(0, 1, 5))

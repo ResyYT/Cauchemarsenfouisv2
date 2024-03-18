@@ -1,6 +1,6 @@
 extends Control
 
-
+signal bouton_retour_pressed(Vector_position)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -10,4 +10,4 @@ func _on_audio_button_pressed():
 
 
 func _on_retour_button_pressed():
-	SceneSwitcher.switch_scene("res://scenes/Menu/Menu.tscn")
+	bouton_retour_pressed.emit(Vector3(0, 1, 5))

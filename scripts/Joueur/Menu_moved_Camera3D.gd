@@ -1,6 +1,7 @@
 extends Camera3D
 
 var ok = 0
+var target_position = Vector3(0, 0, 0)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -9,7 +10,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ok == 1:
-		var target_position = Vector3(0, 0, 0) # Coordonnées cibles de la caméra
 		var speed = 3 # Vitesse de déplacement de la caméra
 		# Calculer le vecteur de déplacement nécessaire pour atteindre la position cible
 		var direction = (target_position - global_transform.origin).normalized()
@@ -23,7 +23,13 @@ func _process(delta):
 			global_transform.origin += direction * speed * delta
 		else:
 			ok = 0
+			target_position = Vector3(0, 0, 0)
 
 
 func _on_menu_bouton_jouer_press():
 	ok = 1
+
+
+func _on_menu_changer_position_camera(vector_position):
+	ok = 1
+	target_position = vector_position

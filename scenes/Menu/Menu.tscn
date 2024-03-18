@@ -31,7 +31,7 @@ shape = SubResource("ConcavePolygonShape3D_nkdj0")
 environment = SubResource("Environment_yedhj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650008, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 script = ExtResource("2_3q6pu")
 
 [node name="MenuPrincipal" type="Control" parent="."]
@@ -74,6 +74,7 @@ offset_bottom = 40.0
 script = ExtResource("3_elrk6")
 
 [node name="Titre" type="VBoxContainer" parent="MenuConnection"]
+layout_mode = 0
 offset_left = 600.0
 offset_top = 80.0
 offset_right = 1422.0
@@ -86,6 +87,7 @@ bbcode_enabled = true
 text = "[center][font_size=50]Connection"
 
 [node name="InformationsConnection" type="VBoxContainer" parent="MenuConnection"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = 208.0
 offset_right = 1214.0
@@ -97,6 +99,7 @@ layout_mode = 2
 placeholder_text = "Entrez votre nom"
 
 [node name="InformationsStatus" type="VBoxContainer" parent="MenuConnection"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = 320.0
 offset_right = 1204.0
@@ -109,6 +112,7 @@ bbcode_enabled = true
 text = "{text}"
 
 [node name="BoutonsConnection" type="VBoxContainer" parent="MenuConnection"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = 436.0
 offset_right = 1128.0
@@ -121,6 +125,7 @@ theme = ExtResource("3_wseu7")
 text = "Connection"
 
 [node name="Retour" type="VBoxContainer" parent="MenuConnection"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 960.0
 offset_right = 240.0
@@ -140,6 +145,7 @@ offset_bottom = 40.0
 script = ExtResource("4_qs0m4")
 
 [node name="Titre" type="VBoxContainer" parent="MenuOptions"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = 68.0
 offset_right = 1250.0
@@ -152,6 +158,7 @@ bbcode_enabled = true
 text = "[center][font_size=40]Options"
 
 [node name="Audio" type="VBoxContainer" parent="MenuOptions"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 210.0
 offset_right = 1100.0
@@ -165,6 +172,7 @@ text = "Audio
 "
 
 [node name="Retour" type="VBoxContainer" parent="MenuOptions"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 950.0
 offset_right = 240.0
@@ -177,10 +185,14 @@ theme = ExtResource("3_wseu7")
 text = "Retour"
 
 [connection signal="bouton_jouer_press" from="." to="Camera3D" method="_on_menu_bouton_jouer_press"]
+[connection signal="changer_position_camera" from="." to="Camera3D" method="_on_menu_changer_position_camera"]
 [connection signal="pressed" from="MenuPrincipal/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="MenuPrincipal/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MenuPrincipal/VBoxContainer/Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="bouton_retour_pressed" from="MenuConnection" to="." method="_on_menu_connection_bouton_retour_pressed"]
 [connection signal="pressed" from="MenuConnection/BoutonsConnection/Connection" to="MenuConnection" method="_appuyer_connection"]
 [connection signal="pressed" from="MenuConnection/Retour/BoutonRetour" to="MenuConnection" method="_on_bouton_retour_pressed"]
+[connection signal="bouton_retour_pressed" from="MenuOptions" to="." method="_on_menu_options_bouton_retour_pressed"]
+[connection signal="bouton_retour_pressed" from="MenuOptions" to="Camera3D" method="_on_menu_options_bouton_retour_pressed"]
 [connection signal="pressed" from="MenuOptions/Audio/AudioButton" to="MenuOptions" method="_on_audio_button_pressed"]
 [connection signal="pressed" from="MenuOptions/Retour/RetourButton" to="MenuOptions" method="_on_retour_button_pressed"]
