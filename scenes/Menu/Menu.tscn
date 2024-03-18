@@ -34,6 +34,8 @@ environment = SubResource("Environment_yedhj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 script = ExtResource("2_3q6pu")
 
+[node name="SonBouton" type="AudioStreamPlayer" parent="."]
+
 [node name="MenuPrincipal" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
@@ -184,7 +186,6 @@ layout_mode = 2
 theme = ExtResource("3_wseu7")
 text = "Retour"
 
-[connection signal="bouton_jouer_press" from="." to="Camera3D" method="_on_menu_bouton_jouer_press"]
 [connection signal="changer_position_camera" from="." to="Camera3D" method="_on_menu_changer_position_camera"]
 [connection signal="pressed" from="MenuPrincipal/VBoxContainer/Jouer" to="." method="_on_jouer_pressed"]
 [connection signal="pressed" from="MenuPrincipal/VBoxContainer/Options" to="." method="_on_options_pressed"]

@@ -1,7 +1,7 @@
 extends Node3D
 
-signal bouton_jouer_press
 signal changer_position_camera(vector_position)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -9,7 +9,8 @@ func _ready():
 	$MenuOptions.hide()
 
 func _on_jouer_pressed():
-	bouton_jouer_press.emit()
+	$SonBouton.play()
+	changer_position_camera.emit(Vector3(0,0,0))
 	$MenuPrincipal.hide()
 	$MenuConnection.show()
 

@@ -23,11 +23,6 @@ func _process(delta):
 			global_transform.origin += direction * speed * delta
 		else:
 			ok = 0
-			target_position = Vector3(0, 0, 0)
-
-
-func _on_menu_bouton_jouer_press():
-	ok = 1
 
 
 func _on_menu_changer_position_camera(vector_position):
