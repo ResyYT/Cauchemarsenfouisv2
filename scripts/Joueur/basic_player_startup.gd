@@ -100,7 +100,7 @@ func _physics_process(delta):
 	if UPDATE_PLAYER_ON_PHYS_STEP:
 		if mouvement == true:
 			rotate_player(delta)
-		move_player(delta)
+			move_player(delta)
 		
 	
 	if HEAD_BOB:
@@ -118,9 +118,6 @@ func _process(delta):
 		rotate_player(delta)
 
 func _input(event):
-	if Input.is_action_just_pressed("echap"):
-		mouvement = false
-		
 	if Engine.is_editor_hint():
 		return
 		
@@ -189,3 +186,9 @@ func reset_head_bob(delta):
 
 func _on_menu_echap_bouton_continuer_pressed():
 	mouvement = true
+	print(mouvement)
+
+
+func _on_player_change_mouvement():
+	mouvement = false
+	print(mouvement)

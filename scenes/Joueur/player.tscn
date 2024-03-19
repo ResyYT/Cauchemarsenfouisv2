@@ -79,7 +79,27 @@ layout_mode = 2
 theme = ExtResource("5_1exbk")
 text = "Quitter"
 
-[connection signal="bouton_continuer_pressed" from="MenuEchap" to="BasicFPSPlayer" method="_on_menu_echap_bouton_continuer_pressed"]
+[node name="MenuControle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuControle"]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 60.0
+offset_right = 1184.0
+offset_bottom = 228.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuControle/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=50]Contrôles"
+
+[connection signal="change_mouvement" from="." to="BasicFPSPlayer" method="_on_player_change_mouvement"]
+[connection signal="afficher_cacher_menu" from="MenuEchap" to="." method="_on_menu_echap_afficher_cacher_menu"]
 [connection signal="pressed" from="MenuEchap/Continuer/ContinuerBouton" to="MenuEchap" method="_on_continuer_bouton_pressed"]
 [connection signal="pressed" from="MenuEchap/Contrôle/ContrôleBouton" to="MenuEchap" method="_on_contrôle_bouton_pressed"]
 [connection signal="pressed" from="MenuEchap/Quitter/QuitterBouton" to="MenuEchap" method="_on_quitter_bouton_pressed"]
