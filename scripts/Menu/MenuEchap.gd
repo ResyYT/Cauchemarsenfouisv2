@@ -15,4 +15,4 @@ func _on_quitter_bouton_pressed():
 
 
 func _on_continuer_bouton_pressed():
-	afficher_cacher_menu.emit(null, $MenuEchap)
+	afficher_cacher_menu.emit(null, "/root/$MenuEchap")

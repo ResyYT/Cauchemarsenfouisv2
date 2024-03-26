@@ -15,10 +15,7 @@ func _process(delta):
 
 
 func _on_menu_echap_afficher_cacher_menu(MenuAfficher, MenuCacher):
-	if MenuCacher != null and MenuAfficher != null:
+	if get_node(MenuCacher) != null:
 		MenuCacher.hide()
+	elif MenuAfficher != null:
 		MenuAfficher.show()
-	if MenuCacher == null:
-		MenuAfficher.show()
-	if MenuAfficher == null:
-		MenuCacher.hide()
