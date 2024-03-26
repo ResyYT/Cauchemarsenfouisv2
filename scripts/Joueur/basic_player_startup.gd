@@ -184,11 +184,11 @@ func reset_head_bob(delta):
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 
 
-func _on_menu_echap_bouton_continuer_pressed():
-	mouvement = true
+func _on_player_change_mouvement():
+	mouvement = false
 	print(mouvement)
 
 
-func _on_player_change_mouvement():
-	mouvement = false
+func _on_continuer_bouton_pressed():
+	mouvement = true
 	print(mouvement)

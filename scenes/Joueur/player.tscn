@@ -100,6 +100,6 @@ text = "[center][font_size=50]Contrôles"
 
 [connection signal="change_mouvement" from="." to="BasicFPSPlayer" method="_on_player_change_mouvement"]
 [connection signal="afficher_cacher_menu" from="MenuEchap" to="." method="_on_menu_echap_afficher_cacher_menu"]
-[connection signal="pressed" from="MenuEchap/Continuer/ContinuerBouton" to="MenuEchap" method="_on_continuer_bouton_pressed"]
+[connection signal="pressed" from="MenuEchap/Continuer/ContinuerBouton" to="BasicFPSPlayer" method="_on_continuer_bouton_pressed"]
 [connection signal="pressed" from="MenuEchap/Contrôle/ContrôleBouton" to="MenuEchap" method="_on_contrôle_bouton_pressed"]
 [connection signal="pressed" from="MenuEchap/Quitter/QuitterBouton" to="MenuEchap" method="_on_quitter_bouton_pressed"]

@@ -10,12 +10,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("echap"):
-		$MenuEchap.show()
+		get_node("MenuEchap").show()
 		change_mouvement.emit()
 
 
 func _on_menu_echap_afficher_cacher_menu(MenuAfficher, MenuCacher):
 	if get_node(MenuCacher) != null:
-		MenuCacher.hide()
-	elif MenuAfficher != null:
-		MenuAfficher.show()
+		get_node(MenuCacher).hide()
+	elif get_node(MenuAfficher) != null:
+		get_node(MenuAfficher).show()

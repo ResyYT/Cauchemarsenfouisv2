@@ -7,7 +7,7 @@ func _ready():
 
 
 func _on_contrôle_bouton_pressed():
-	afficher_cacher_menu.emit($MenuControle, $MenuEchap)
+	afficher_cacher_menu.emit("MenuControle", "MenuEchap")
 
 
 func _on_quitter_bouton_pressed():
@@ -15,4 +15,4 @@ func _on_quitter_bouton_pressed():
 
 
 func _on_continuer_bouton_pressed():
-	afficher_cacher_menu.emit(null, "/root/$MenuEchap")
+	afficher_cacher_menu.emit(null, "MenuEchap")
